@@ -2,8 +2,8 @@ package com.example.tarmoapp;
 
 public class drinkCounter {
 
-    private static double value = 0;
-    private static double step = 0.1;
+    private static int value = 0;
+    private static int step = 2;
 
     public drinkCounter(){
     }
@@ -12,7 +12,7 @@ public class drinkCounter {
         value += step;
     }
 
-    public static double Value(){
+    public static int Value(){
         return value;
     }
 }
