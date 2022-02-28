@@ -3,13 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Valtteri/AndroidStudioProjects/TarmoApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/Valtteri/AndroidStudioProjects/TarmoApp/app/src/main/res/layout/app_toolbar.xml" value="0.1" />
-        <entry key="..\:/Users/Valtteri/AndroidStudioProjects/TarmoApp/app/src/main/res/layout/drawer_layout.xml" value="0.21920289855072464" />
-        <entry key="..\:/Users/Valtteri/AndroidStudioProjects/TarmoApp/app/src/main/res/layout/list_view_item_row.xml" value="0.21920289855072464" />
-        <entry key="..\:/Users/Valtteri/AndroidStudioProjects/TarmoApp/app/src/main/res/layout/nav_header.xml" value="0.21920289855072464" />
-        <entry key="..\:/Users/Valtteri/AndroidStudioProjects/TarmoApp/app/src/main/res/layout/toolbar.xml" value="0.21920289855072464" />
-        <entry key="..\:/Users/Valtteri/AndroidStudioProjects/TarmoApp/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/TarmoApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Valtteri/AndroidStudioProjects/TarmoApp/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>
