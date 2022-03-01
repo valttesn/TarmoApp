@@ -1,11 +1,11 @@
 package com.example.tarmoapp;
 
-public class drinkCounter {
+public class DrinkCounter {
 
     private static int value = 0;
     private static int step = 2;
 
-    public drinkCounter(){
+    public DrinkCounter(){
     }
 
     public static void Raise(){
