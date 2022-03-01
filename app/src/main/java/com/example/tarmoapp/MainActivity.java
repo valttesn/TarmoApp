@@ -49,9 +49,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drinkView.setText("Olet juonut " + Integer.toString((DrinkCounter.Value())) + " desiä vettä tänään.");
     }
 
-    public void onItemClick(View v, int i) {
-        Intent nextActivity = new Intent(MainActivity.this, PerformAction.class);
-        nextActivity.putExtra("presidentIndex", i);
+    public void onItemClick(View v) {
+        Intent nextActivity = new Intent(MainActivity.this, Excersise.class);
         startActivity(nextActivity);
     }
 
