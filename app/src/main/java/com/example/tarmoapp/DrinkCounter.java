@@ -1,6 +1,8 @@
 package com.example.tarmoapp;
 
-public class DrinkCounter {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class DrinkCounter extends AppCompatActivity {
 
     private static int value = 0;
     private static int step = 2;
