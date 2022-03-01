@@ -4,7 +4,6 @@ package com.example.tarmoapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -60,6 +59,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent calendarActivity = new Intent(MainActivity.this, CalendarActivity.class);
         startActivity(calendarActivity);
     }
+
+    public void onSettingsClick() {
+        Intent settingsActivity = new Intent(MainActivity.this, settingsActivity.class);
+        startActivity(settingsActivity);
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -67,6 +72,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             case R.id.nav_calendar:
                 onCalendarClick();
+                break;
+
+            case R.id.nav_settings:
+                onSettingsClick();
                 break;
         }
         return true;
