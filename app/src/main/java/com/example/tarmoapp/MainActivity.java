@@ -7,16 +7,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
-
+    TextView drinkView;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
+    public String waterDrank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        drinkView = findViewById(R.id.drinksView);
+        Log.d("DMG", "onCreate() called");
+        loadData();
+        updateData();
     }
 
     @Override
@@ -44,7 +52,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     public void onClick(View view){
-        TextView drinkView = findViewById(R.id.drinksView);
+        drinkView = findViewById(R.id.drinksView);
         DrinkCounter.Raise();
         drinkView.setText("Olet juonut " + Integer.toString((DrinkCounter.Value())) + " desiä vettä tänään.");
     }
@@ -78,5 +86,32 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 break;
         }
         return true;
+    }
+
+    public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("Juodut vedet", drinkView.getText().toString());
+
+        editor.apply();
+    }
+    public void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
+        String waterTemp = Integer.toString(DrinkCounter.Value());
+        waterDrank = sharedPreferences.getString("Juodut vedet", waterTemp);
+    }
+
+    public void updateData() {
+        drinkView.setText(waterDrank);
+    }
+    public void onStart() {
+        super.onStart();
+        Log.d("DMG", "onStart() called");
+    }
+
+    public void onPause() {
+        super.onPause();
+        Log.i("DMG", "onPause() called");
+        saveData();
     }
 }
