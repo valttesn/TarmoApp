@@ -22,6 +22,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity android:name=".FitnessTipsActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".DisplayFitnessTipActivity"
+            android:parentActivityName=".FitnessTipsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FitnessTipsActivity" />
+        </activity>
         <activity
             android:name=".PerformAction"
             android:parentActivityName=".MainActivity">
