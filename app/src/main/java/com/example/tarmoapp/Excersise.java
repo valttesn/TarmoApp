@@ -1,5 +1,6 @@
 package com.example.tarmoapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -11,10 +12,7 @@ public class Excersise extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perform_action);
-
-    }
-
-    public Excersise(){
+        Intent intent = getIntent();
 
     }
 }
