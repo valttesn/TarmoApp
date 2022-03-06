@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
+
 import android.widget.TextView;
 
 import java.io.File;
@@ -73,4 +73,9 @@ public class settingsActivity extends AppCompatActivity {
         assert dir != null;
         return dir.delete();
     }
+
+    public static boolean theme () {
+        return dark;
+    }
+
 }

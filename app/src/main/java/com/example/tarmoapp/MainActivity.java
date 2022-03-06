@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     TextView drinkView;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
-    public String waterDrank;
+    public int waterDrank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,16 +62,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         startActivity(nextActivity);
     }
 
-    public void onCalendarClick() {
-        Intent calendarActivity = new Intent(MainActivity.this, CalendarActivity.class);
-        startActivity(calendarActivity);
-    }
-
-    public void onSettingsClick() {
-        Intent settingsActivity = new Intent(MainActivity.this, settingsActivity.class);
-        startActivity(settingsActivity);
-    }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -84,6 +74,10 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
             case R.id.nav_settings:
                 onSettingsClick();
                 break;
+
+            case R.id.nav_fitnesstips:
+                onFitnessTipsClick();
+                break;
         }
         return true;
     }
@@ -91,27 +85,41 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("Juodut vedet", drinkView.getText().toString());
+        editor.putInt("Juodut vedet", DrinkCounter.Value());
 
         editor.apply();
     }
     public void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
-        String waterTemp = Integer.toString(DrinkCounter.Value());
-        waterDrank = sharedPreferences.getString("Juodut vedet", waterTemp);
+        int waterTemp = DrinkCounter.Value();
+        Log.d("DMG", String.valueOf(sharedPreferences.getInt("Juodut vedet", waterTemp)));
+        waterDrank = sharedPreferences.getInt("Juodut vedet", waterTemp);
+        DrinkCounter.setValue(waterDrank);
+        Log.i("DMG", String.valueOf(waterTemp));
     }
 
     public void updateData() {
-        drinkView.setText(waterDrank);
-    }
-    public void onStart() {
-        super.onStart();
-        Log.d("DMG", "onStart() called");
+        drinkView.setText(Integer.toString(waterDrank));
     }
 
     public void onPause() {
         super.onPause();
         Log.i("DMG", "onPause() called");
         saveData();
+    }
+
+    public void onCalendarClick() {
+        Intent calendarActivity = new Intent(MainActivity.this, CalendarActivity.class);
+        startActivity(calendarActivity);
+    }
+
+    public void onSettingsClick() {
+        Intent settingsActivity = new Intent(MainActivity.this, settingsActivity.class);
+        startActivity(settingsActivity);
+    }
+
+    public void onFitnessTipsClick() {
+        Intent fitnessTipsActivity = new Intent(MainActivity.this, FitnessTipsActivity.class);
+        startActivity(fitnessTipsActivity);
     }
 }
