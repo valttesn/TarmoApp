@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TarmoApp">
         <activity
+            android:name=".PerformHistory"
+            android:parentActivityName=".PerformAction">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
             android:name=".settingsActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
