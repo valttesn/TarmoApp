@@ -1,6 +1,8 @@
 package com.example.tarmoapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,11 +12,6 @@ public class PerformAction extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perform_action);
-
-        int index = getIntent().getIntExtra("presidentIndex", 0);
-    }
-
-    public PerformAction(){
-
+        Intent intent = getIntent();
     }
 }
