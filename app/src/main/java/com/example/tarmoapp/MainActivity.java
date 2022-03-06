@@ -91,15 +91,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
     public void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
-        int waterTemp = DrinkCounter.Value();
-        Log.d("DMG", String.valueOf(sharedPreferences.getInt("Juodut vedet", waterTemp)));
-        waterDrank = sharedPreferences.getInt("Juodut vedet", waterTemp);
-        DrinkCounter.setValue(waterDrank);
-        Log.i("DMG", String.valueOf(waterTemp));
+        DrinkCounter.setValue(sharedPreferences.getInt("Juodut vedet", DrinkCounter.Value()));
     }
 
     public void updateData() {
-        drinkView.setText(Integer.toString(waterDrank));
+        drinkView.setText("Olet juonut " + Integer.toString(DrinkCounter.Value()) + " desiä vettä tänään.");
     }
 
     public void onPause() {
