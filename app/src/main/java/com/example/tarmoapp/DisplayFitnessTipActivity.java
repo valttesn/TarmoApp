@@ -12,9 +12,11 @@ public class DisplayFitnessTipActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_fitness_tip);
 
+        // Haetaan klikatun fitness vinkin nimi ja teksti
         int index = getIntent().getIntExtra("fitnessIndex", 0);
         FitnessTip fitnessTip = Singleton.getInstance().list.get(index);
 
+        //Esitetään valittu fitness vinkki
         ((TextView) findViewById(R.id.textViewNumberOfTip)).setText(fitnessTip.getName());
         ((TextView) findViewById(R.id.textViewFitnessTip)).setText(fitnessTip.getComment());
     }

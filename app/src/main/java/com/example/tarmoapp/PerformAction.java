@@ -13,19 +13,19 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PerformAction extends AppCompatActivity {
-    EditText text, minutes;
+    private EditText text, minutes;
     private static String hobby;
     private static int mins;
-    Button saveBtn;
-    boolean isTrueText, isTrueMins;
+    private Button saveBtn;
+    private boolean isTrueText, isTrueMins;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perform_action);
 
-        text = (EditText)findViewById(R.id.TextHobby);
-        minutes = (EditText)findViewById(R.id.minuteBox);
+        text = findViewById(R.id.TextHobby);
+        minutes = findViewById(R.id.minuteBox);
         saveBtn = findViewById(R.id.saveBtn);
 
         saveBtn.setEnabled(false);

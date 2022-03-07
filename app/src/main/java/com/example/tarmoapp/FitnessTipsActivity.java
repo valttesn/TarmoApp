@@ -17,11 +17,10 @@ public class FitnessTipsActivity extends AppCompatActivity {
 
         ListView lv = findViewById(R.id.list);
 
-        //Luodaan arraylist fitness tipseille
-
-        lv.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Singleton.getInstance().getPresidents()));
+        //Luodaan listview fitness tipseille ja poimitaan nykyiset arvot listasta
+        lv.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Singleton.getInstance().getFitnessTips()));
+        //Lisätään klikkauksen kuuntelu ja vaihdetaan aktiviteettia mikäli jotakin kohtaa listasta painetaan
         lv.setOnItemClickListener((adapterView, view, i, l) -> {
-            Log.i("DMG", "Valittiin hienosti alkio " + l);
             Intent nextActivity = new Intent(FitnessTipsActivity.this, DisplayFitnessTipActivity.class);
             nextActivity.putExtra("fitnessIndex", i);
             startActivity(nextActivity);

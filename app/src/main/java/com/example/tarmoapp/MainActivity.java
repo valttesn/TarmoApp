@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
-    private TextView drinkView;
+    private TextView drinkView, mood;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -42,11 +42,10 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         updateData();
 
         //Kerrotaan käyttäjälle onko hän saanut suositellun määrän unta
-
-        TextView mood = findViewById(R.id.moodView);
+        mood = findViewById(R.id.moodView);
         Log.d("Unet", "Nukuit" + Sleep.SleepAmount());
 
-        if(callSleep() <= 7){
+        if(Sleep.SleepAmount() <= 7){
             mood.setText("Tarmoa väsyttää");
         }else{
             mood.setText("Tarmo on virkeä!");
@@ -104,21 +103,25 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         return true;
     }
 
+    //Siirtyminen kalenteriin
     public void onCalendarClick() {
         Intent calendarActivity = new Intent(MainActivity.this, CalendarActivity.class);
         startActivity(calendarActivity);
     }
 
+    //Siirtyminen asetuksiin
     public void onSettingsClick() {
         Intent settingsActivity = new Intent(MainActivity.this, settingsActivity.class);
         startActivity(settingsActivity);
     }
 
+    //Siirtyminen fitnessvinkkeihin
     public void onFitnessTipsClick() {
         Intent fitnessTipsActivity = new Intent(MainActivity.this, FitnessTipsActivity.class);
         startActivity(fitnessTipsActivity);
     }
 
+    //Metodi jolla tallennetaan juodun veden määrä sharedpreferensseihin
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -127,6 +130,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         editor.apply();
     }
 
+    //Metodi jolla haetaan tallennetut arvot sharedpreferensseistä
     public void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         DrinkCounter.setValue(sharedPreferences.getInt("Juodut vedet", DrinkCounter.Value()));
@@ -136,6 +140,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         Sleep.setSleep(sharedPreferences.getInt("Uni", Sleep.SleepAmount()));
     }
 
+    //Päivitetään etusivun juodut vedet
     public void updateData() {
         drinkView.setText("Olet juonut " + Integer.toString(DrinkCounter.Value()) + " desiä vettä tänään.");
     }
@@ -143,9 +148,5 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     public void onPause() {
         super.onPause();
         saveData();
-    }
-
-    public static double callSleep(){
-        return Sleep.SleepAmount();
     }
 }

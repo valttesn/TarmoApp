@@ -1,9 +1,5 @@
 package com.example.tarmoapp;
 
-import android.util.Log;
-
-// Luokka josta fitness tipsit luodaan listaan
-
 public class FitnessTip {
     private String name, comment;
 
@@ -12,17 +8,19 @@ public class FitnessTip {
         this.comment = comment;
     }
 
+    //Palauttaa fitness tipsien nimen
     public String getName() {
         return name;
     }
 
+    //Palauttaa fitness tipsien tekstin
     public String  getComment() {
         return comment;
     }
 
+    // Palauttaa ListView listaa varten pelkästään listasta nimen
     @Override
     public String toString() {
-        Log.i("DMG", "Fitness tip" + name + comment);
         return name;
     }
 }

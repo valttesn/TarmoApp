@@ -51,7 +51,6 @@ public class settingsActivity extends AppCompatActivity {
     }
 
     //Sovelluksen muistin tyhjennys
-
     public void destroyData(View view) {
         super.onDestroy();
         clearApplicationData();
@@ -87,11 +86,6 @@ public class settingsActivity extends AppCompatActivity {
         return dir.delete();
     }
 
-    public static boolean theme () {
-        return dark;
-    }
-
-
     //Vesiannoksen muuttaminen
     public void onCLickSaveNewWaterValue(View view) {
         int tempValue = Integer.parseInt(String.valueOf(editWaterValue.getText()));
@@ -101,10 +95,12 @@ public class settingsActivity extends AppCompatActivity {
         saveData();
     }
 
+    //Metodi jolla ylikirjoitetaan nykyinen
     public void currentWaterValue() {
         currentWaterValue.setText("Nykyinen vesiannos on: "+ Integer.toString(DrinkCounter.Step()) + " dl.");
     }
 
+    //Metodi jolla tallennetaan annettuja arvoja sharedpreferensseihin
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

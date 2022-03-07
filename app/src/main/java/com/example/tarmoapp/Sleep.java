@@ -39,14 +39,17 @@ public class Sleep extends AppCompatActivity {
         startActivity(nextActivity);
     }
 
+    //Metodi jolla ylikirjoitetaan nukuttu aika
     public static void setSleep(int newAmount){
         sleepAmount = newAmount;
     }
 
+    //Metodi joka palauttaa nukutun ajan
     public static int SleepAmount(){
         return sleepAmount;
     }
 
+    //Metodi jolla tallennetaan nukuttu aika sharedpreferensseihin
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
