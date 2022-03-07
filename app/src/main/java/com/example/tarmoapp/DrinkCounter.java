@@ -14,6 +14,9 @@ public class DrinkCounter extends AppCompatActivity {
     public static void setValue(int tempValue) {
         value = tempValue;
     }
+    public static void setStep(int tempStep) {
+        step = tempStep;
+    }
 
     public static void Raise(){
         value += step;

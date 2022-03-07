@@ -105,6 +105,8 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     public void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         DrinkCounter.setValue(sharedPreferences.getInt("Juodut vedet", DrinkCounter.Value()));
+        DrinkCounter.setStep(sharedPreferences.getInt("Veden määrä", DrinkCounter.Step()));
+        Log.i("DMG", String.valueOf(DrinkCounter.Step()));
     }
 
     public void updateData() {
@@ -113,6 +115,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
     public void onPause() {
         super.onPause();
+        Log.i("DMG", String.valueOf(DrinkCounter.Step()));
         Log.i("DMG", "onPause() called");
         saveData();
     }
