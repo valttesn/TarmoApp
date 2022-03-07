@@ -3,6 +3,7 @@ package com.example.tarmoapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
@@ -27,9 +28,9 @@ public class CalendarActivity extends AppCompatActivity {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
+                i1++;
                 String date = i2 + "/" + i1 + "/" +i;
                 currentlyselectedDate.setText("Valittu päivämäärä on " + date);
-
             }
         });
     }
