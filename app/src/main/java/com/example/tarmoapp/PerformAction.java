@@ -13,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PerformAction extends AppCompatActivity {
     EditText text;
-    String hobby;
+    static String hobby;
     EditText minutes;
-    int mins;
+    static int mins;
     Button saveBtn;
     boolean isTrueText;
     boolean isTrueMins;
@@ -101,11 +101,19 @@ public class PerformAction extends AppCompatActivity {
         }
     }
 
-    public String getHobby(){
+    public static void setHobby(String newString){
+        hobby = newString;
+    }
+
+    public static void setMins(int newMins){
+        mins = newMins;
+    }
+
+    public static String getHobby(){
         return hobby;
     }
 
-    public int getMins(){
+    public static int getMins(){
         return mins;
     }
 }

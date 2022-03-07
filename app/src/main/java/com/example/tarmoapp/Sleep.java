@@ -35,6 +35,10 @@ public class Sleep extends AppCompatActivity {
         startActivity(nextActivity);
     }
 
+    public static void setSleep(int newAmount){
+        sleepAmount = newAmount;
+    }
+
     public static int getSleepAmount(){
         return sleepAmount;
     }

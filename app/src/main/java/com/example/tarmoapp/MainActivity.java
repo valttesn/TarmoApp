@@ -99,6 +99,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("Juodut vedet", DrinkCounter.Value());
+        editor.putInt("Urheilu", PerformAction.getMins());
+        editor.putInt("Uni", Sleep.getSleepAmount());
+        editor.putString("Urheilu", PerformAction.getHobby());
 
         editor.apply();
     }
