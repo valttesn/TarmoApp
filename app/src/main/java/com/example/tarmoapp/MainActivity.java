@@ -62,6 +62,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         startActivity(nextActivity);
     }
 
+    public void onClickSleep(View view) {
+        Intent nextActivity = new Intent(MainActivity.this, Sleep.class);
+        startActivity(nextActivity);
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();

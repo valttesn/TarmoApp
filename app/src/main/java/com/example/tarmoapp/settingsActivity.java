@@ -3,6 +3,7 @@ package com.example.tarmoapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,16 +14,16 @@ import java.io.File;
 
 public class settingsActivity extends AppCompatActivity {
     private static boolean dark = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         Button btn = (Button) findViewById(R.id.darkBtn);
 
-
-        if(dark == true){
+        if (dark == true) {
             btn.setText("Tumma");
-        }else{
+        } else {
             btn.setText("Vaalea");
         }
     }
