@@ -32,6 +32,8 @@ public class PerformAction extends AppCompatActivity {
         isTrueText = false;
         isTrueMins = false;
 
+
+        // Listenerit molempiin EditTexteihin, jotta Tallenna-nappi pysyy lukittuna kunnes käyttäjä on täyttänyt vaadittavat tiedot
         text.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -71,10 +73,14 @@ public class PerformAction extends AppCompatActivity {
         });
     }
 
+    //Metodi avaa CalendarActivityn
+
     public void onPerformHistoryClick(View view) {
         Intent nextActivity = new Intent(PerformAction.this, CalendarActivity.class);
         startActivity(nextActivity);
     }
+
+    //Metodi Tallenna-napille. Tallentamisen lisäksi nappi tyhjentää molemmat tekstikentät ja lukitsee napin.
 
     public void onSaveClick(View view){
         hobby = text.getText().toString();
@@ -100,6 +106,8 @@ public class PerformAction extends AppCompatActivity {
         editor.putInt("Urheiltu aika", PerformAction.getMins());
         editor.apply();
     }
+
+    // Toiminnallisuus napin lukitsemiselle
 
     public void trueChecker(){
         if(isTrueText == true && isTrueMins == true){

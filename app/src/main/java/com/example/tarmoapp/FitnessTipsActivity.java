@@ -17,6 +17,8 @@ public class FitnessTipsActivity extends AppCompatActivity {
 
         ListView lv = findViewById(R.id.list);
 
+        //Luodaan arraylist fitness tipseille
+
         lv.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Singleton.getInstance().getPresidents()));
         lv.setOnItemClickListener((adapterView, view, i, l) -> {
             Log.i("DMG", "Valittiin hienosti alkio " + l);

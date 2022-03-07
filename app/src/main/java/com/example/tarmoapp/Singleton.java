@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// Lista fitness tipseistä
+
 public class Singleton extends AppCompatActivity {
 
     private static final Singleton instance = new Singleton();

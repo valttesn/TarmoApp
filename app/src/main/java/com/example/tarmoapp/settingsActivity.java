@@ -26,7 +26,7 @@ public class settingsActivity extends AppCompatActivity {
         currentWaterValue = findViewById(R.id.textViewCurrentWaterAmount);
 
         Button btn = (Button) findViewById(R.id.darkBtn);
-
+        //Napin teksti muuttuu teemasta riippuen
         if (dark == true) {
             btn.setText("Tumma");
         } else {
@@ -36,6 +36,8 @@ public class settingsActivity extends AppCompatActivity {
         currentWaterValue();
     }
 
+
+    //Tumma tila päälle/pois
     public void onClickDark(View view){
         if(dark == false) {
             AppCompatDelegate.setDefaultNightMode(
@@ -47,6 +49,8 @@ public class settingsActivity extends AppCompatActivity {
             dark = false;
         }
     }
+
+    //Sovelluksen muistin tyhjennys
 
     public void destroyData(View view) {
         super.onDestroy();
@@ -87,6 +91,8 @@ public class settingsActivity extends AppCompatActivity {
         return dark;
     }
 
+
+    //Vesiannoksen muuttaminen
     public void onCLickSaveNewWaterValue(View view) {
         int tempValue = Integer.parseInt(String.valueOf(editWaterValue.getText()));
         Log.i("DMG", String.valueOf(tempValue));
@@ -95,15 +101,15 @@ public class settingsActivity extends AppCompatActivity {
         saveData();
     }
 
+    public void currentWaterValue() {
+        currentWaterValue.setText("Nykyinen vesiannos on: "+ Integer.toString(DrinkCounter.Step()) + " dl.");
+    }
+
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("Veden määrä", DrinkCounter.Step());
 
         editor.apply();
-    }
-
-    public void currentWaterValue() {
-        currentWaterValue.setText("Nykyinen vesiannos on: "+ Integer.toString(DrinkCounter.Step()) + " dl.");
     }
 }

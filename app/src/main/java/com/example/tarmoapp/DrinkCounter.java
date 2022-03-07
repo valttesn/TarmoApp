@@ -11,9 +11,11 @@ public class DrinkCounter extends AppCompatActivity {
 
     }
 
+    //Metodi asettaa muuttujan arvoksi arvon SharedPreferenceistä
     public static void setValue(int tempValue) {
         value = tempValue;
     }
+    //Metodi asettaa yhden "stepin" arvoksi vesiannosta lisätessä arvon SharedPreferenceistä
     public static void setStep(int tempStep) {
         step = tempStep;
     }

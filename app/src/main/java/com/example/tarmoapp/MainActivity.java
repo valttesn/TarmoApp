@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        //Drawer-menun luominen
         drawerLayout = findViewById(R.id.my_drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
 
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         loadData();
         updateData();
 
+        //Kerrotaan käyttäjälle onko hän saanut suositellun määrän unta
+
         TextView mood = findViewById(R.id.moodView);
         Log.d("Unet", "Nukuit" + Sleep.SleepAmount());
 
@@ -49,6 +53,8 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         }
     }
 
+
+    //Menu auki/kiinni
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -57,13 +63,15 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         }
         return super.onOptionsItemSelected(item);
     }
-
+    //Vesiannoksen lisäysnappi
     public void onClick(View view){
         drinkView = findViewById(R.id.drinksView);
         DrinkCounter.Raise();
         drinkView.setText("Olet juonut " + Integer.toString((DrinkCounter.Value())) + " desiä vettä tänään.");
     }
 
+
+    //Metodit liikuntasuoritusten ja unen määrälle
     public void onPerformActionClick(View view) {
         Intent nextActivity = new Intent(MainActivity.this, PerformAction.class);
         startActivity(nextActivity);
@@ -74,6 +82,8 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         startActivity(nextActivity);
     }
 
+
+    //Menun navigaatio
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -94,6 +104,21 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         return true;
     }
 
+    public void onCalendarClick() {
+        Intent calendarActivity = new Intent(MainActivity.this, CalendarActivity.class);
+        startActivity(calendarActivity);
+    }
+
+    public void onSettingsClick() {
+        Intent settingsActivity = new Intent(MainActivity.this, settingsActivity.class);
+        startActivity(settingsActivity);
+    }
+
+    public void onFitnessTipsClick() {
+        Intent fitnessTipsActivity = new Intent(MainActivity.this, FitnessTipsActivity.class);
+        startActivity(fitnessTipsActivity);
+    }
+
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -101,6 +126,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
         editor.apply();
     }
+
     public void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         DrinkCounter.setValue(sharedPreferences.getInt("Juodut vedet", DrinkCounter.Value()));
@@ -117,21 +143,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     public void onPause() {
         super.onPause();
         saveData();
-    }
-
-    public void onCalendarClick() {
-        Intent calendarActivity = new Intent(MainActivity.this, CalendarActivity.class);
-        startActivity(calendarActivity);
-    }
-
-    public void onSettingsClick() {
-        Intent settingsActivity = new Intent(MainActivity.this, settingsActivity.class);
-        startActivity(settingsActivity);
-    }
-
-    public void onFitnessTipsClick() {
-        Intent fitnessTipsActivity = new Intent(MainActivity.this, FitnessTipsActivity.class);
-        startActivity(fitnessTipsActivity);
     }
 
     public static double callSleep(){

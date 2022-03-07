@@ -29,7 +29,7 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
                 String date = i2 + "/" + i1 + "/" +i;
-                currentlyselectedDate.setText("Valittu päivämäärä on "+ date);
+                currentlyselectedDate.setText("Valittu päivämäärä on " + date);
 
             }
         });

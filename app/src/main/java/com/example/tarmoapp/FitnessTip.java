@@ -2,6 +2,8 @@ package com.example.tarmoapp;
 
 import android.util.Log;
 
+// Luokka josta fitness tipsit luodaan listaan
+
 public class FitnessTip {
     private String name, comment;
 
@@ -20,7 +22,7 @@ public class FitnessTip {
 
     @Override
     public String toString() {
-        Log.i("DMG", "President: " + name + comment);
+        Log.i("DMG", "Fitness tip" + name + comment);
         return name;
     }
 }

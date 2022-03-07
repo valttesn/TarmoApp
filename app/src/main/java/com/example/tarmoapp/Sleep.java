@@ -23,6 +23,8 @@ public class Sleep extends AppCompatActivity {
         picker.setIs24HourView(true);
     }
 
+    //OnClick tallentaa kelloon valitut arvot sekä laskee tunnit + minuutit.
+
     public void onClickSave(View view){
         hours = picker.getHour();
         minutes = picker.getMinute() / 60;
