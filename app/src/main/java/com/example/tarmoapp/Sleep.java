@@ -3,6 +3,7 @@ package com.example.tarmoapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +30,7 @@ public class Sleep extends AppCompatActivity {
         Log.i("arvot", hours + "+" + minutes);
 
         sleepAmount = hours + minutes;
+        saveData();
 
         Log.i("nuku", "onClickSave: " + sleepAmount);
         Intent nextActivity = new Intent(Sleep.this, MainActivity.class);
@@ -39,7 +41,15 @@ public class Sleep extends AppCompatActivity {
         sleepAmount = newAmount;
     }
 
-    public static int getSleepAmount(){
+    public static int SleepAmount(){
         return sleepAmount;
     }
+
+    public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("Uni", Sleep.SleepAmount());
+        editor.apply();
+    }
+
 }

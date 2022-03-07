@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         updateData();
 
         TextView mood = findViewById(R.id.moodView);
-        Log.d("Unet", "Nukuit" + Sleep.getSleepAmount());
+        Log.d("Unet", "Nukuit" + Sleep.SleepAmount());
 
         if(callSleep() <= 7){
             mood.setText("Tarmoa väsyttää");
@@ -99,9 +99,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("Juodut vedet", DrinkCounter.Value());
-        editor.putInt("Urheilu", PerformAction.getMins());
-        editor.putInt("Uni", Sleep.getSleepAmount());
-        editor.putString("Urheilu", PerformAction.getHobby());
 
         editor.apply();
     }
@@ -109,6 +106,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         DrinkCounter.setValue(sharedPreferences.getInt("Juodut vedet", DrinkCounter.Value()));
         DrinkCounter.setStep(sharedPreferences.getInt("Veden määrä", DrinkCounter.Step()));
+        PerformAction.setHobby(sharedPreferences.getString("Urheilulaji", PerformAction.Hobby()));
+        PerformAction.setMins(sharedPreferences.getInt("Urheiltu aika", PerformAction.Mins()));
+        Sleep.setSleep(sharedPreferences.getInt("Uni", Sleep.SleepAmount()));
         Log.i("DMG", String.valueOf(DrinkCounter.Step()));
     }
 
@@ -139,6 +139,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     public static double callSleep(){
-        return Sleep.getSleepAmount();
+        return Sleep.SleepAmount();
     }
 }

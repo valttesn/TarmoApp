@@ -45,7 +45,7 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
     public void refreshSleepAmount() {
-        sleepAmount.setText("Nukuit " + Integer.toString(Sleep.getSleepAmount()) + " h");
+        sleepAmount.setText("Nukuit " + Integer.toString(Sleep.SleepAmount()) + " h");
     }
 
     public void refreshWaterDrankAmount() {
