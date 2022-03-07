@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TarmoApp">
-        <activity android:name=".settingsActivity"
         <activity
             android:name=".PerformHistory"
             android:parentActivityName=".PerformAction">
