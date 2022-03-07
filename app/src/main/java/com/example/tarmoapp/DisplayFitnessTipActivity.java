@@ -12,7 +12,7 @@ public class DisplayFitnessTipActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_fitness_tip);
 
-        int index = getIntent().getIntExtra("presidentIndex", 0);
+        int index = getIntent().getIntExtra("fitnessIndex", 0);
         FitnessTip fitnessTip = Singleton.getInstance().list.get(index);
 
         ((TextView) findViewById(R.id.textViewNumberOfTip)).setText(fitnessTip.getName());

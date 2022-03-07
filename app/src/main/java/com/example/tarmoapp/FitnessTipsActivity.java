@@ -21,7 +21,7 @@ public class FitnessTipsActivity extends AppCompatActivity {
         lv.setOnItemClickListener((adapterView, view, i, l) -> {
             Log.i("DMG", "Valittiin hienosti alkio " + l);
             Intent nextActivity = new Intent(FitnessTipsActivity.this, DisplayFitnessTipActivity.class);
-            nextActivity.putExtra("presidentIndex", i);
+            nextActivity.putExtra("fitnessIndex", i);
             startActivity(nextActivity);
         });
     }

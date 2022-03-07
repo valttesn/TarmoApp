@@ -14,10 +14,7 @@
         android:theme="@style/Theme.TarmoApp">
         <activity
             android:name=".Sleep"
-            android:exported="false" />
-        <activity
-            android:name=".PerformHistory"
-            android:parentActivityName=".PerformAction">
+            android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
