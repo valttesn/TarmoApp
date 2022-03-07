@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     TextView drinkView;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
+
+
     private TextView stepsCounter;
     private SensorManager sensorManager;
     private Sensor mStepCounter;
@@ -53,6 +55,13 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         loadData();
         updateData();
 
+        TextView mood = findViewById(R.id.moodView);
+        Log.d("Unet", "Nukuit" + Sleep.getSleepAmount());
+
+        if(callSleep() <= 7){
+            mood.setText("Tarmoa väsyttää");
+        }else{
+            mood.setText("Tarmo on virkeä!");
         stepsCounter = findViewById(R.id.stepsView);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
@@ -158,6 +167,8 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         startActivity(fitnessTipsActivity);
     }
 
+    public static double callSleep(){
+        return Sleep.getSleepAmount();
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         if(sensorEvent.sensor == mStepCounter){

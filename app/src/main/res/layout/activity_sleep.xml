@@ -31,8 +31,8 @@
 
     <TimePicker
         android:id="@+id/timePicker"
-        android:layout_width="174dp"
-        android:layout_height="188dp"
+        android:layout_width="319dp"
+        android:layout_height="187dp"
         android:timePickerMode="spinner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

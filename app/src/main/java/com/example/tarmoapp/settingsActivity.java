@@ -5,20 +5,28 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.File;
 
 public class settingsActivity extends AppCompatActivity {
     private static boolean dark = false;
+    private EditText editWaterValue;
+    private TextView currentWaterValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        editWaterValue = findViewById(R.id.waterInput);
+        currentWaterValue = findViewById(R.id.textViewCurrentWaterAmount);
+
         Button btn = (Button) findViewById(R.id.darkBtn);
 
         if (dark == true) {
@@ -26,6 +34,8 @@ public class settingsActivity extends AppCompatActivity {
         } else {
             btn.setText("Vaalea");
         }
+
+        currentWaterValue();
     }
 
     public void onClickDark(View view){
@@ -79,4 +89,14 @@ public class settingsActivity extends AppCompatActivity {
         return dark;
     }
 
+    public void onCLickSaveNewWaterValue(View view) {
+        int tempValue = Integer.parseInt(String.valueOf(editWaterValue.getText()));
+        Log.i("DMG", String.valueOf(tempValue));
+        DrinkCounter.changeStep(tempValue);
+        currentWaterValue();
+    }
+
+    public void currentWaterValue() {
+        currentWaterValue.setText("Nykyinen vesiannos on: "+ Integer.toString(DrinkCounter.Step()) + " dl.");
+    }
 }
