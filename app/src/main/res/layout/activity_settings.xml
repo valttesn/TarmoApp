@@ -72,20 +72,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.437" />
 
-    <EditText
-        android:id="@+id/waterInput"
-        android:layout_width="218dp"
-        android:layout_height="51dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.435"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.577" />
-
     <TextView
         android:id="@+id/dl"
         android:layout_width="19dp"
@@ -94,8 +80,47 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintHorizontal_bias="0.586"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.581" />
+        app:layout_constraintVertical_bias="0.576" />
+
+    <Button
+        android:id="@+id/buttonSaveNewWaterValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onCLickSaveNewWaterValue"
+        android:text="Tallenna"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.673" />
+
+    <EditText
+        android:id="@+id/waterInput"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/textViewCurrentWaterAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.728" />
 </androidx.constraintlayout.widget.ConstraintLayout>

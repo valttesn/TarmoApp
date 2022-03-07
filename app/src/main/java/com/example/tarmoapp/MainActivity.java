@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     TextView drinkView;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
-    public int waterDrank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +39,15 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         Log.d("DMG", "onCreate() called");
         loadData();
         updateData();
+
+        TextView mood = findViewById(R.id.moodView);
+        Log.d("Unet", "Nukuit" + Sleep.getSleepAmount());
+
+        if(callSleep() <= 7){
+            mood.setText("Tarmoa väsyttää");
+        }else{
+            mood.setText("Tarmo on virkeä!");
+        }
     }
 
     @Override
@@ -122,5 +130,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     public void onFitnessTipsClick() {
         Intent fitnessTipsActivity = new Intent(MainActivity.this, FitnessTipsActivity.class);
         startActivity(fitnessTipsActivity);
+    }
+
+    public static double callSleep(){
+        return Sleep.getSleepAmount();
     }
 }
