@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
         //Kerrotaan käyttäjälle onko hän saanut suositellun määrän unta
         mood = findViewById(R.id.moodView);
-        Log.d("Unet", "Nukuit" + Sleep.SleepAmount());
+        Log.d("Unet", "Nukuit" + SleepActivity.SleepAmount());
 
-        if(Sleep.SleepAmount() <= 7){
+        if(SleepActivity.SleepAmount() <= 7){
             mood.setText("Tarmoa väsyttää");
         }else{
             mood.setText("Tarmo on virkeä!");
@@ -72,12 +72,12 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
     //Metodit liikuntasuoritusten ja unen määrälle
     public void onPerformActionClick(View view) {
-        Intent nextActivity = new Intent(MainActivity.this, PerformAction.class);
+        Intent nextActivity = new Intent(MainActivity.this, PerformActionActivity.class);
         startActivity(nextActivity);
     }
 
     public void onClickSleep(View view) {
-        Intent nextActivity = new Intent(MainActivity.this, Sleep.class);
+        Intent nextActivity = new Intent(MainActivity.this, SleepActivity.class);
         startActivity(nextActivity);
     }
 
@@ -135,9 +135,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         DrinkCounter.setValue(sharedPreferences.getInt("Juodut vedet", DrinkCounter.Value()));
         DrinkCounter.setStep(sharedPreferences.getInt("Veden määrä", DrinkCounter.Step()));
-        PerformAction.setHobby(sharedPreferences.getString("Urheilulaji", PerformAction.Hobby()));
-        PerformAction.setMins(sharedPreferences.getInt("Urheiltu aika", PerformAction.Mins()));
-        Sleep.setSleep(sharedPreferences.getInt("Uni", Sleep.SleepAmount()));
+        PerformActionActivity.setHobby(sharedPreferences.getString("Urheilulaji", PerformActionActivity.Hobby()));
+        PerformActionActivity.setMins(sharedPreferences.getInt("Urheiltu aika", PerformActionActivity.Mins()));
+        SleepActivity.setSleep(sharedPreferences.getInt("Uni", SleepActivity.SleepAmount()));
     }
 
     //Päivitetään etusivun juodut vedet

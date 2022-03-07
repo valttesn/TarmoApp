@@ -3,7 +3,6 @@ package com.example.tarmoapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
@@ -37,7 +36,7 @@ public class CalendarActivity extends AppCompatActivity {
 
     // Päivitetään nykyinen nukutun unen arvo
     public void refreshSleepAmount() {
-        sleepAmount.setText("Nukuit " + Integer.toString(Sleep.SleepAmount()) + " h");
+        sleepAmount.setText("Nukuit " + Integer.toString(SleepActivity.SleepAmount()) + " h");
     }
 
     // Päivitetään nykyinen juodun veden arvo
@@ -47,6 +46,6 @@ public class CalendarActivity extends AppCompatActivity {
 
     // Päivitetään nykyinen urheiltu laji ja kesto
     public void refreshExerciseAmount() {
-        exerciseAmount.setText("Harrastit " + (PerformAction.getHobby()) + " " + (PerformAction.getMins() + " minuuttia."));
+        exerciseAmount.setText("Harrastit " + (PerformActionActivity.getHobby()) + " " + (PerformActionActivity.getMins() + " minuuttia."));
     }
 }

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TarmoApp">
         <activity
-            android:name=".Sleep"
+            android:name=".SleepActivity"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -48,7 +48,7 @@
                 android:value=".FitnessTipsActivity" />
         </activity>
         <activity
-            android:name=".PerformAction"
+            android:name=".PerformActionActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

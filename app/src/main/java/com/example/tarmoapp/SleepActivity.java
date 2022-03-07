@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TimePicker;
 
-public class Sleep extends AppCompatActivity {
+public class SleepActivity extends AppCompatActivity {
     public static int hours, minutes, sleepAmount;
 
     private TimePicker picker;
@@ -35,7 +35,7 @@ public class Sleep extends AppCompatActivity {
         saveData();
 
         Log.i("nuku", "onClickSave: " + sleepAmount);
-        Intent nextActivity = new Intent(Sleep.this, MainActivity.class);
+        Intent nextActivity = new Intent(SleepActivity.this, MainActivity.class);
         startActivity(nextActivity);
     }
 
@@ -53,7 +53,7 @@ public class Sleep extends AppCompatActivity {
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("Uni", Sleep.SleepAmount());
+        editor.putInt("Uni", SleepActivity.SleepAmount());
         editor.apply();
     }
 

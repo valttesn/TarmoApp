@@ -36,7 +36,6 @@ public class settingsActivity extends AppCompatActivity {
         currentWaterValue();
     }
 
-
     //Tumma tila päälle/pois
     public void onClickDark(View view){
         if(dark == false) {

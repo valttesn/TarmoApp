@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PerformAction extends AppCompatActivity {
+public class PerformActionActivity extends AppCompatActivity {
     private EditText text, minutes;
     private static String hobby;
     private static int mins;
@@ -76,7 +76,7 @@ public class PerformAction extends AppCompatActivity {
     //Metodi avaa CalendarActivityn
 
     public void onPerformHistoryClick(View view) {
-        Intent nextActivity = new Intent(PerformAction.this, CalendarActivity.class);
+        Intent nextActivity = new Intent(PerformActionActivity.this, CalendarActivity.class);
         startActivity(nextActivity);
     }
 
@@ -102,8 +102,8 @@ public class PerformAction extends AppCompatActivity {
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("Urheilulaji", PerformAction.getHobby());
-        editor.putInt("Urheiltu aika", PerformAction.getMins());
+        editor.putString("Urheilulaji", PerformActionActivity.getHobby());
+        editor.putInt("Urheiltu aika", PerformActionActivity.getMins());
         editor.apply();
     }
 
