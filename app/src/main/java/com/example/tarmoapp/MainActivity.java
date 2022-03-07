@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -109,7 +108,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         PerformAction.setHobby(sharedPreferences.getString("Urheilulaji", PerformAction.Hobby()));
         PerformAction.setMins(sharedPreferences.getInt("Urheiltu aika", PerformAction.Mins()));
         Sleep.setSleep(sharedPreferences.getInt("Uni", Sleep.SleepAmount()));
-        Log.i("DMG", String.valueOf(DrinkCounter.Step()));
     }
 
     public void updateData() {
@@ -118,8 +116,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
     public void onPause() {
         super.onPause();
-        Log.i("DMG", String.valueOf(DrinkCounter.Step()));
-        Log.i("DMG", "onPause() called");
         saveData();
     }
 

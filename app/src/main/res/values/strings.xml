@@ -2,4 +2,13 @@
     <string name="app_name">TarmoApp</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+    <string name="themeView">Teema:</string>
+    <string name="memoryView">Tyhjennä muisti:</string>
+    <string name="waterView">Muuta veden määrää:</string>
+    <string name="buttonEmptyCache">Tyhjennä</string>
+    <string name="textViewdl">dl</string>
+    <string name="buttonSaveNewWaterValue">Tallenna</string>
+    <string name="textViewCurrentWaterAmount">TextView</string>
+    <string name="textEditWaterAmount">esim. 3</string>
+    <string name="theme">Teema</string>
 </resources>
