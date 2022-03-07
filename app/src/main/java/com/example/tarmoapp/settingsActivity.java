@@ -50,6 +50,7 @@ public class settingsActivity extends AppCompatActivity {
     }
 
     //Sovelluksen muistin tyhjennys
+    //lainattu https://stackoverflow.com/questions/23908189/clear-cache-in-android-application-programmatically
     public void destroyData(View view) {
         super.onDestroy();
         clearApplicationData();
