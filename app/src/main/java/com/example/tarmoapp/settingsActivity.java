@@ -93,6 +93,15 @@ public class settingsActivity extends AppCompatActivity {
         Log.i("DMG", String.valueOf(tempValue));
         DrinkCounter.changeStep(tempValue);
         currentWaterValue();
+        saveData();
+    }
+
+    public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("NUMBER", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("Veden määrä", DrinkCounter.Step());
+
+        editor.apply();
     }
 
     public void currentWaterValue() {
