@@ -10,8 +10,7 @@ public class Singleton extends AppCompatActivity {
 
     private static final Singleton instance = new Singleton();
     public static List<FitnessTip> list = Arrays.asList(
-            //Jostain syystä ensimmäinen rivi ei toimi listassa, mutta näyttää kaikki sen jälkeiset ihan normaalisti
-            new FitnessTip("", ""),
+            new FitnessTip("demo", "jeejee"),
             new FitnessTip("1. terveysvinkki", "Juo sukat ja vaihda vedet"),
             new FitnessTip("2. terveysvinkki", "Vaihda vedet ja juo sukat"));
 

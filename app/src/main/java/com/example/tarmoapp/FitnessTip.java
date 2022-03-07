@@ -14,7 +14,7 @@ public class FitnessTip {
     }
 
     //Palauttaa fitness tipsien tekstin
-    public String  getComment() {
+    public String getComment() {
         return comment;
     }
 
