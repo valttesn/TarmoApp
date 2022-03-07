@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.TimePicker;
 
 public class Sleep extends AppCompatActivity {
-    public static double hours, minutes, sleepAmount;
+    public static int hours, minutes, sleepAmount;
 
-    TimePicker picker;
+    private TimePicker picker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class Sleep extends AppCompatActivity {
         startActivity(nextActivity);
     }
 
-    public static double getSleepAmount(){
+    public static int getSleepAmount(){
         return sleepAmount;
     }
 }
